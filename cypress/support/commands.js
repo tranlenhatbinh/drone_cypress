@@ -23,3 +23,11 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('NavigateWorldRoamer', () => {
+  cy.viewport(1300, 700)
+  cy.visit('/')
+  // Wait for Policy popup displays
+  cy.wait(1000)
+  cy.get('span').contains('OK').parent().click({force: true})
+})
